@@ -1,6 +1,6 @@
 {
   "name": "@woubuc/inject",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dead-simple dependency injection library",
   "license": "MIT",
   "author": "@woubuc <npm@woubuc.be> (https://woubuc.be)",
