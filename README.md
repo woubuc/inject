@@ -3,7 +3,7 @@
 A simple global dependency injection container
 
 ## Basic usage
-Simply annotate a service with `@service()` to register it.
+Simply annotate a service with `@injectable()` to register it.
 
 Use the `inject()` function to get the singleton instance of the service. The
 DI container will **automatically construct** an instance of the injected class
