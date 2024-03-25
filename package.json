@@ -5,6 +5,7 @@
   "license": "MIT",
   "author": "@woubuc <npm@woubuc.be> (https://woubuc.be)",
   "homepage": "https://github.com/woubuc/inject",
+  "funding": "https://github.com/sponsors/woubuc",
   "repository": {
     "type": "git",
     "url": "https://github.com/woubuc/inject.git"
@@ -14,10 +15,14 @@
   },
   "type": "module",
   "main": "dist/lib.js",
+  "types": "dist/lib.d.ts",
   "files": [
     "dist/**/*",
     "!dist/**/*.spec.*"
   ],
+  "engines": {
+    "node": ">=16.4.0"
+  },
   "scripts": {
     "build": "del-cli dist && tsc",
     "dev": "tsc --watch",
