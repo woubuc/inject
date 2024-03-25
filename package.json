@@ -1,0 +1,35 @@
+{
+  "name": "@woubuc/inject",
+  "version": "1.0.0",
+  "description": "Dead-simple dependency injection library",
+  "license": "MIT",
+  "author": "@woubuc <npm@woubuc.be> (https://woubuc.be)",
+  "type": "module",
+  "main": "dist/lib.js",
+  "files": [
+    "dist/**/*",
+    "!dist/**/*.spec.*"
+  ],
+  "scripts": {
+    "build": "del-cli dist && tsc",
+    "dev": "tsc --watch",
+    "prepack": "del-cli && tsc && ava",
+    "test": "del-cli dist && tsc && ava"
+  },
+  "dependencies": {
+    "type-fest": "^4.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.4",
+    "ava": "^6.1.2",
+    "del-cli": "^5.1.0",
+    "typescript": "^5.3.3"
+  },
+  "keywords": [
+    "container",
+    "dependency injection",
+    "di",
+    "inject",
+    "services"
+  ]
+}
