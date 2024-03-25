@@ -4,6 +4,14 @@
   "description": "Dead-simple dependency injection library",
   "license": "MIT",
   "author": "@woubuc <npm@woubuc.be> (https://woubuc.be)",
+  "homepage": "https://github.com/woubuc/inject",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/woubuc/inject.git"
+  },
+  "bugs": {
+    "url": "https://github.com/woubuc/inject/issues"
+  },
   "type": "module",
   "main": "dist/lib.js",
   "files": [
