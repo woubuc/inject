@@ -26,7 +26,7 @@
   "scripts": {
     "build": "del-cli dist && tsc",
     "dev": "tsc --watch",
-    "prepack": "del-cli && tsc && ava",
+    "prepack": "del-cli dist && tsc && ava",
     "test": "del-cli dist && tsc && ava"
   },
   "dependencies": {
