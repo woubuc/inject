@@ -1,26 +1,23 @@
-import test from 'ava';
+import { expect, test } from 'bun:test';
 import { DependencyTrace } from './dependency-trace.js';
 import { CircularDependencyError } from './errors/circular-dependency-error.js';
 
-test('with', (t) => {
-	t.deepEqual(DependencyTrace.path, []);
+test('with', () => {
+	expect(DependencyTrace.path).toEqual([]);
 
 	DependencyTrace.with('foo', () => {
 		DependencyTrace.with('bar', () => {
-			t.deepEqual(DependencyTrace.path, ['foo', 'bar']);
+			expect(DependencyTrace.path).toEqual(['foo', 'bar']);
 		});
 	});
 
-	t.deepEqual(DependencyTrace.path, []);
+	expect(DependencyTrace.path).toEqual([]);
 });
 
-test('circular', (t) => {
+test('circular', () => {
 	DependencyTrace.with('foo', () => {
 		DependencyTrace.with('bar', () => {
-			t.throws(
-				() => DependencyTrace.with('foo', () => {}),
-				{ instanceOf: CircularDependencyError },
-			);
+			expect(() => DependencyTrace.with('foo', () => {})).toThrowError(CircularDependencyError);
 		});
 	});
 });

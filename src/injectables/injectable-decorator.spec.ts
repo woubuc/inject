@@ -1,39 +1,39 @@
-import test from 'ava';
+import { test, afterEach, expect } from 'bun:test';
 import { injectable } from './injectable-decorator.js';
 import { registry } from './registry.js';
 
-test.afterEach(() => {
+afterEach(() => {
 	registry.clear();
 });
 
-test('no token', (t) => {
+test('no token', () => {
 	@injectable()
 	class Test {}
 
-	t.deepEqual(registry.get(Test), {
+	expect(registry.get(Test)).toEqual({
 		token: Test,
 		Class: Test,
 	});
 });
 
-test('string token', (t) => {
+test('string token', () => {
 	@injectable({ token: 'test' })
 	class WithStringToken {}
 
-	t.deepEqual(registry.get('test'), {
+	expect(registry.get('test')).toEqual({
 		token: 'test',
 		Class: WithStringToken,
 	});
 });
 
 
-test('symbol token', (t) => {
+test('symbol token', () => {
 	const symbol = Symbol('test');
 
 	@injectable({ token: symbol })
 	class WithSymbolToken {}
 
-	t.deepEqual(registry.get(symbol), {
+	expect(registry.get(symbol)).toEqual({
 		token: symbol,
 		Class: WithSymbolToken,
 	});

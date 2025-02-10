@@ -21,21 +21,21 @@
     "!dist/**/*.spec.*"
   ],
   "engines": {
-    "node": ">=16.4.0"
+    "node": ">=16.4.0",
+    "bun": ">= 1"
   },
   "scripts": {
-    "build": "del-cli dist && tsc",
-    "dev": "tsc --watch",
-    "prepack": "del-cli dist && tsc && ava",
-    "test": "del-cli dist && tsc && ava"
+    "build": "bun run build.ts",
+    "dev": "bun test --watch",
+    "prepack": "bun run build",
+    "test": "bun test"
   },
   "dependencies": {
-    "type-fest": "^4.8.3"
+    "type-fest": "^4.34.1"
   },
   "devDependencies": {
-    "@types/node": "^20.10.4",
-    "ava": "^6.1.2",
-    "del-cli": "^5.1.0",
+    "@types/bun": "^1.2.2",
+    "@types/node": "^22.13.1",
     "typescript": "^5.3.3"
   },
   "keywords": [

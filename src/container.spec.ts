@@ -1,27 +1,27 @@
-import test from 'ava';
+import { expect, test } from 'bun:test';
 import { Container } from './container.js';
 import { injectable } from './lib.js';
 
-test('current container', (t) => {
-	t.assert(Container.current());
-	t.is(Container.current(), Container.current());
+test('current container', () => {
+	expect(Container.current()).toBeDefined();
+	expect(Container.current()).toStrictEqual(Container.current());
 });
 
-test('get', (t) => {
+test('get', () => {
 	@injectable()
 	class Test {}
 
 	let container = Container.current();
 
-	t.assert(container.get(Test) instanceof Test);
-	t.is(container.get(Test), container.get(Test));
+	expect(container.get(Test)).toBeInstanceOf(Test);
+	expect(container.get(Test)).toStrictEqual(container.get(Test));
 });
 
-test('provide', (t) => {
+test('provide', () => {
 	let container = Container.current();
 
 	container.provide('test', 'foo');
-	t.is(container.get('test'), 'foo');
+	expect(container.get<string>('test')).toEqual('foo');
 });
 
 // TODO test scoped/inheritance, parent lookup, errors
