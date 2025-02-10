@@ -7,7 +7,7 @@ export type { CircularDependencyError } from './errors/circular-dependency-error
 export type { MissingTokenError } from './errors/missing-token-error.js';
 export { injectable } from './injectables/injectable-decorator.js';
 export type { OnDestroy } from './on-destroy.js';
-export type { Token } from './token.js';
+export { token, type Token } from './token.js';
 
 /**
  * Injects an injectable

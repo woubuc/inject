@@ -75,7 +75,6 @@ class OtherService {
     this.service.doStuff();
   }
 }
-
 ```
 
 ### Provide
@@ -83,14 +82,14 @@ Use `provide()` to provide custom data for a given injection token. Combined
 with string tokens, this can be used to provide e.g. configuration values.
 
 ```ts
-import { Container, inject } from '@woubuc/inject';
+import { Container, token, inject } from '@woubuc/inject';
 
-const urlToken = Symbol('urlToken');
+const urlToken = token<string>('urlToken');
 
 Container.current().provide(urlToken, 'http://example.com/');
 
 class MyApiClientService {
-  private readonly url = inject<string>(urlToken);
+  private readonly url = inject(urlToken);
 
   public async load() {
     await fetch(this.url);
